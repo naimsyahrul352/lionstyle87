@@ -171,7 +171,8 @@ body {
   flex: 1 1 45rem;
 }
 .about .row .about-img img {
-  width: 100%;
+  margin-left: 10rem;
+  width: 60%;
 }
 
 .about .row .content {
