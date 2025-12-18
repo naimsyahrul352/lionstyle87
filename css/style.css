@@ -1,6 +1,6 @@
 :root {
   --primary: #02287a;
-  --bg: #010101;
+  --bg: #c54d4d;
 }
 
 * {
@@ -209,25 +209,94 @@ body {
   line-height: 1.6;
 }
 
-.menu .row {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 5rem;
+.menu .ro {
+  position: relative;
+  width: 80%;
+  overflow: hidden;
+  display: flex; /* KUNCI */
+  align-items: center; /* center vertikal */
   justify-content: center;
 }
 
-.menu .row .menu-card {
-  text-align: center;
-  padding-bottom: 2rem;
+.menu .ro .row {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 16px 48px;
 }
 
-.menu .row .menu-card img {
-  border-radius: 5%;
-  width: 80%;
+.menu .ro .row::-webkit-scrollbar {
+  display: none;
+}
+
+.menu .ro .row .menu-card {
+  min-width: 220px;
+  height: 280px;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.menu .ro .row .menu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+}
+
+.menu .ro .row .menu-card img {
+  width: 100%;
+  max-width: 180px; /* biar nggak kepanjangan */
+  height: 200px;
+  object-fit: contain; /* KUNCI: gambar utuh & tengah */
+  margin: 12px auto 0; /* tengah */
+  display: block;
 }
 
 .menu .row .menu-card .menu-card-title {
-  margin: 0.5rem auto 0rem;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.menu .ro .row .menu-card-price {
+  font-size: 14px;
+  font-weight: 700;
+  color: #e53935;
+  text-align: center;
+}
+
+/* tombol */
+.btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.btn.left {
+  left: 5px;
+}
+
+.btn.right {
+  right: 5px;
+}
+
+.menu .ro .row {
+  cursor: grab;
+}
+
+.menu .ro .row:active {
+  cursor: grabbing;
 }
 
 /* Contact section */
